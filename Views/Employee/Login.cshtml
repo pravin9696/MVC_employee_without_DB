@@ -1,0 +1,38 @@
+﻿ @model MVC_employee_without_DB.Models.login
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div> 
+		@using(Html.BeginForm("Login","Employee",FormMethod.Post))
+		{ 
+		
+		<table>
+			<tr>
+				<td>@Html.LabelFor(x=>x.userid)</td>
+				<td>@Html.TextBoxFor(x=>x.userid)</td>
+			</tr>
+			<tr>
+				<td>@Html.LabelFor(x=>x.password)</td>
+				<td>@Html.PasswordFor(x=>x.password)</td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="login" /></td>
+				<td><input type="reset" value="Reset"></td>
+			</tr>
+			<tr>
+				<td colspan="2">@Html.ActionLink("click to Register", "Registration","Employee")</td>
+			</tr>
+		</table>
+		}
+    </div>
+</body>
+</html>

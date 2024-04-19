@@ -1,0 +1,54 @@
+﻿@model   MVC_employee_without_DB.Models.employee
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registration</title>
+</head>
+<body>
+	<div>
+		@using (Html.BeginForm("Registration", "Employee", FormMethod.Post))
+		{
+
+			<table>
+				<tr>
+					<td>@Html.LabelFor(x => x.empid)</td>
+					<td>@Html.TextBoxFor(x => x.empid)</td>
+				</tr>
+				<tr>
+					<td>@Html.LabelFor(x => x.name)</td>
+					<td>@Html.TextBoxFor(x => x.name)</td>
+				</tr>
+				<tr>
+					<td>@Html.LabelFor(x => x.deptName)</td>
+					<td>@Html.DropDownListFor(x => x.deptName, new SelectList(ViewBag.depts, "deptName", "deptName"))</td>
+				</tr>
+				<tr>
+					<td>@Html.LabelFor(x => x.gender)</td>
+					<td>@Html.RadioButtonFor(x => x.gender, "Male")@Html.Label("Male")<br />@Html.RadioButtonFor(x => x.gender, "Female")@Html.Label("Female")</td>
+				</tr>
+				<tr>
+					<td>@Html.LabelFor(x => x.address)</td>
+					<td>@Html.TextAreaFor(x=>x.address)</td>
+				</tr>
+				<tr>
+					<td>@Html.LabelFor(x => x.city)</td>
+					<td>@Html.ListBoxFor(x=>x.city,new SelectList(ViewBag.cities,"cityName","cityName"))</td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="login" /></td>
+					<td><input type="reset" value="Reset"></td>
+				</tr>
+				<tr>
+					<td colspan="2">@Html.ActionLink("click to Register", "Registration", "Employee")</td>
+				</tr>
+			</table>
+		}
+	</div>
+</body>
+</html>
